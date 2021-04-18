@@ -9,7 +9,7 @@ public class DoorStates : MonoBehaviour
     private Animator _animator;
     [SerializeField] private GameObject _pressEtoOpen;
     private bool _isPlayerNearby;
-    private bool _openDoor;
+    [HideInInspector] public bool IsDoorOpen;
     public enum States
     {
         Locked,
@@ -42,8 +42,8 @@ public class DoorStates : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && _isPlayerNearby && State == States.Unlocked)
         {
-            _openDoor = !_openDoor;
-            _animator.SetBool(_animator.GetParameter(0).name, _openDoor);
+            IsDoorOpen = !IsDoorOpen;
+            _animator.SetBool(_animator.GetParameter(0).name, IsDoorOpen);
             _audioSource.clip = AudioManager.singleton.OpenDoorSound;
             _audioSource.Play();
         }

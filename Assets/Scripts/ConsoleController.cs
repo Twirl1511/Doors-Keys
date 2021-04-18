@@ -92,20 +92,37 @@ public class ConsoleController : MonoBehaviour
 
     private void ChangeDoorState()
     {
-        _isDoorLocked = !_isDoorLocked;
-        if (_isDoorLocked)
+
+        if (!_doorState.IsDoorOpen)
         {
-            _doorState.State = DoorStates.States.Locked;
+            _isDoorLocked = !_isDoorLocked;
+            if (_isDoorLocked)
+            {
+                _doorState.State = DoorStates.States.Locked;
+            }
+            else
+            {
+                _doorState.State = DoorStates.States.Unlocked;
+            }
+            _locked.SetActive(_isDoorLocked);
+
+            /// play acces sound
+            _audioSource.clip = AudioManager.singleton.AccesSound;
+            _audioSource.Play();
         }
         else
         {
-            _doorState.State = DoorStates.States.Unlocked;
+            /// play acces sound
+            _audioSource.clip = AudioManager.singleton.ErrorSound;
+            _audioSource.Play();
         }
-        _locked.SetActive(_isDoorLocked);
 
-        /// play acces sound
-        _audioSource.clip = AudioManager.singleton.AccesSound;
-        _audioSource.Play();
+
+
+
+
+
+        
 
     }
 }
