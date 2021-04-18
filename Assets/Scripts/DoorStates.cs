@@ -44,6 +44,7 @@ public class DoorStates : MonoBehaviour
         {
             IsDoorOpen = !IsDoorOpen;
             _animator.SetBool(_animator.GetParameter(0).name, IsDoorOpen);
+
             _audioSource.clip = AudioManager.singleton.OpenDoorSound;
             _audioSource.Play();
         }

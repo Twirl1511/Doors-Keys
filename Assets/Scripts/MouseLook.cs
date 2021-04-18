@@ -9,20 +9,13 @@ public class MouseLook : MonoBehaviour
     private float _xRotation = 0f;
     void Start()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     void Update()
     {
-        LookAround();
-        
+        LookAround();   
     }
-
-    
-
-
 
     private void LookAround()
     {

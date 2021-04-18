@@ -14308,6 +14308,7 @@ MonoBehaviour:
   _audioSource: {fileID: 983227060}
   _light: {fileID: 66684620}
   _finalRoom: {fileID: 2147136812}
+  _player: {fileID: 1130797806}
 --- !u!65 &983227062
 BoxCollider:
   m_ObjectHideFlags: 0

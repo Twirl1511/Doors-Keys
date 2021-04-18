@@ -92,7 +92,7 @@ public class ConsoleController : MonoBehaviour
 
     private void ChangeDoorState()
     {
-
+        /// works only if door is closed
         if (!_doorState.IsDoorOpen)
         {
             _isDoorLocked = !_isDoorLocked;
@@ -112,7 +112,7 @@ public class ConsoleController : MonoBehaviour
         }
         else
         {
-            /// play acces sound
+            /// play error sound
             _audioSource.clip = AudioManager.singleton.ErrorSound;
             _audioSource.Play();
         }
