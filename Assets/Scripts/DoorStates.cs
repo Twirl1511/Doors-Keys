@@ -7,7 +7,7 @@ public class DoorStates : MonoBehaviour
     private AudioSource _audioSource;
     
     private Animator _animator;
-    [SerializeField] private GameObject _pressEtoOpen;
+    [SerializeField] private GameObject _pressEtoOpenText;
     private bool _isPlayerNearby;
     [HideInInspector] public bool IsDoorOpen;
     public enum States
@@ -27,7 +27,7 @@ public class DoorStates : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerNearby = true;
-            _pressEtoOpen.SetActive(true);
+            _pressEtoOpenText.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -35,7 +35,7 @@ public class DoorStates : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerNearby = false;
-            _pressEtoOpen.SetActive(false);
+            _pressEtoOpenText.SetActive(false);
         }
     }
     private void Update()

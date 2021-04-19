@@ -6,8 +6,8 @@ public class ConsoleController : MonoBehaviour
 {
     private AudioSource _audioSource;
     [SerializeField] private DoorStates _doorState;
-    [SerializeField] private GameObject _locked;
-    [SerializeField] private GameObject _pressEtoLockUnlock;
+    [SerializeField] private GameObject _lockedIcon;
+    [SerializeField] private GameObject _pressEtoLockUnlockText;
     private bool _isPlayerNearby;
     private bool _isDoorLocked = true;
     public enum Colors
@@ -26,7 +26,7 @@ public class ConsoleController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerNearby = true;
-            _pressEtoLockUnlock.SetActive(true);
+            _pressEtoLockUnlockText.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -34,7 +34,7 @@ public class ConsoleController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerNearby = false;
-            _pressEtoLockUnlock.SetActive(false);
+            _pressEtoLockUnlockText.SetActive(false);
         }
     }
 
@@ -104,7 +104,7 @@ public class ConsoleController : MonoBehaviour
             {
                 _doorState.State = DoorStates.States.Unlocked;
             }
-            _locked.SetActive(_isDoorLocked);
+            _lockedIcon.SetActive(_isDoorLocked);
 
             /// play acces sound
             _audioSource.clip = AudioManager.singleton.AccesSound;
