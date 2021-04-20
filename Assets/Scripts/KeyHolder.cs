@@ -21,7 +21,7 @@ public class KeyHolder : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         _audioSource = GetComponent<AudioSource>();
     }
